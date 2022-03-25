@@ -1,1 +1,1 @@
-# career-connection
+# code-quiz
