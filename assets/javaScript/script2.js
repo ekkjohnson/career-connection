@@ -1,3 +1,17 @@
+var rooEl=$("#root");
+
+const quizContainer = document.getElementById('quiz');
+const resultsContainer = document.getElementById('results');
+const submitButton = document.getElementById('submit');
+
+var welcomeText = document.querySelector('.lrgTitle')
+var rules = document.querySelector('.intro-Rules')
+var beginGame = document.querySelector('.start-btn')
+var timeLeft = 10
+var blank = document.querySelector('#blankSpace')
+var timeDisplay = document.querySelector('timerStart')
+var quest = document.querySelector('questions')
+
 const myQuestions = [
     {
       question: "Which is not a data type?",
