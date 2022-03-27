@@ -15,17 +15,15 @@ beginGame.addEventListener('click', function () {
             clearInterval(timer)
         }
         else if (timeLeft === 0) {
-            // alert('Game Over!')
-            // document.textContent(timeDisplay) = (timeLeft);
-            timeDisplay.textContent= (timeLeft)
-            timeDisplay.textContent = (" ")
+            alert('Game Over!')
+            timeDisplay.textContent= timeLeft
+            timeLeft.textContent = ""
         }
         else (
-        // document.textContent(timeDisplay) = (timeLeft);
-        timeDisplay.textContent= (timeLeft)
-        )
-         } , 1000)
-    
+            timeDisplay.textContent = timeLeft
+        
+     )} , 1000)
+         
 })
 
 const quizContainer = document.getElementById('quiz');
@@ -125,3 +123,21 @@ nextButton.addEventListener("click", showNextSlide);
     // show number of correct answers out of total
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
   }
+  var profile = [];
+
+userStore.addEventListener("click", function(event) {
+  event.preventDefault();
+  
+  // TODO: Create user object from submissio
+var userProfile ={
+intials: initialsInput.value,
+  score:
+}
+  // TODO: Set new submission to local storage 
+  localStorage.setItem("userProfile", JSON.stringify(userProfile));
+  renderMessage();
+
+
+function renderMessage(){
+  var userProfileFromStorage =JSON.parse(localStorage.getItem("userProfile"));
+}}
