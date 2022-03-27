@@ -77,7 +77,19 @@ submitButton.addEventListener('click', showResults);
   
     // finally combine our output list into one string of HTML and put it on the page
     quizContainer.innerHTML = output.join('');
+    showSlide(currentSlide);
+    function showNextSlide() {
+        showSlide(currentSlide + 1);
+      }
+      
+      function showPreviousSlide() {
+        showSlide(currentSlide - 1);
+      }
+      previousButton.addEventListener("click", showPreviousSlide);
+nextButton.addEventListener("click", showNextSlide);
+
   }
+
 
   function showResults(){
 
