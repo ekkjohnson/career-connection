@@ -1,16 +1,20 @@
 var rooEl=$("#root");
 
-var welcomeText = document.querySelector('.lrgTitle')
-var rules = document.querySelector('.intro-Rules')
-var beginGame = document.querySelector('.start-btn')
+var welcomeText = document.querySelector(".lrgTitle")
+var rules = document.querySelector(".intro-Rules")
+var beginGame = document.getElementById("start-btn")
 var timeLeft = 10
-var blank = document.querySelector('#blankSpace')
-var timeDisplay = document.querySelector('timerStart')
-var quest = document.querySelector('questions')
+var blank = document.querySelector("#blankSpace")
+var timeDisplay = document.querySelector(".timerStart")
+var quest = document.querySelector(".questions")
 
-beginGame.addEventListener('click', function () {
-    var timer = setInterval(function () {
+beginGame.addEventListener('click', function countDown() {
+    // window.alert("hi")
+    questionContainer.style.displays="block"
+    showQuestion(numCorrect)
+    timer = setInterval(function () {
         timeLeft--;
+        timerDisplay.textContent= timeLeft
         if (timeLeft < 0) {
             clearInterval(timer)
         }
@@ -23,8 +27,30 @@ beginGame.addEventListener('click', function () {
             timeDisplay.textContent = timeLeft
         
      )} , 1000)
-         
+        console.log(timeLeft) 
 })
+
+// function startTimer() {
+//     // Sets timer
+//     timer = setInterval(function() {
+//       timerCount--;
+//       timerElement.textContent = timerCount;
+//       if (timerCount >= 0) {
+//         // Tests if win condition is met
+//         if (isWin && timerCount > 0) {
+//           // Clears interval and stops timer
+//           clearInterval(timer);
+//         //   winGame();
+//         }
+//       }
+//       // Tests if time has run out
+//       if (timerCount === 0) {
+//         // Clears interval
+//         clearInterval(timer);
+//         // loseGame();
+//       }
+//     }, 1000);
+//   }
 
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
@@ -131,13 +157,10 @@ userStore.addEventListener("click", function(event) {
   // TODO: Create user object from submissio
 var userProfile ={
 intials: initialsInput.value,
-  score:
-}
+//   score:
+
   // TODO: Set new submission to local storage 
-  localStorage.setItem("userProfile", JSON.stringify(userProfile));
-  renderMessage();
-
-
-function renderMessage(){
-  var userProfileFromStorage =JSON.parse(localStorage.getItem("userProfile"));
-}}
+//   localStorage.setItem("userProfile", JSON.stringify(userProfile))
+//   renderMessage();
+}
+}
