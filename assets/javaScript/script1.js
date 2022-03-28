@@ -55,7 +55,7 @@ beginGame.addEventListener('click', function countDown() {
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
-
+<script type="text/javascript" src="./assets/javaScript/script2.js"></script>
 function buildQuiz(){}
 
 function showResults(){}
