@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Game!</title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/jass.css" />
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
 
@@ -14,7 +13,7 @@
     <section>
         <div class="lrgTitle">Timed Javascript Quiz Game!</div>
         <div class="intro-Rules"></div>
-        <button id="start-btn">Click to Start</button>
+        <button class="start-btn">Click to Start</button>
     </section>
     <section>
         <div class="gameSection">
@@ -24,7 +23,7 @@
     <section>
         <div class="card-timer">
             <div class="timerMsg">
-                <p class="timerStart"> 10 </p>
+                <p class="timerStart" id="timer-start"> 10 </p>
 
                 <h3>seconds remaining!!!</h3>
             </div>
@@ -46,9 +45,9 @@
     <section>
     </section>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/questions.js"></script>
+    <script src="./assets/js/script.js"></script>
     
-    <script type="text/javascript" src="./assets/js/script2.js"></script>
-    <script src="./assets/js/script1.js"></script>
 </body>
 
 </html>
