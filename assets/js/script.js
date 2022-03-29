@@ -15,6 +15,7 @@ nextBtn.style.left = "49%";
 nextBtn.style.transform = "translateX(-49%)";
 
 questionContainer.style.display= "none"
+// Element.addEventListener('click'), function(){
 var questions = [
   {
     question: "Which is not a data type?",
@@ -47,8 +48,9 @@ var questions = [
 ];
 
 var questionIndex= 0
-onclick .start-btn
+
 function showQuestion(index) {
+  questionContainer.style.display= "block"
     quest.textContent= ""
     userChoice.textContent= ""
     for (var i = 0; i < questions.length; i++) {
@@ -113,17 +115,20 @@ beginGame.addEventListener("click", function () {
       alert("Game Over!");
       timeDisplay.textContent = timeLeft;
       timeLeft.textContent = "";
-    } else timeDisplay.textContent = timeLeft;
-  }, 1000);
+    } else {
+      timeDisplay.textContent = timeLeft;
 
-  console.log(timeDisplay.textContent);
+    } 
+  }, 1000);
+showQuestion(0)
+  console.log(timeLeft);
 });
 
 
 
 var user_initial_input=document.querySelector('#intial')
 var scoreInput=document.querySelector('#score')
-var saveBtnInput=document.querySelector('#saveButton')
+var saveBtnInput=document.querySelector('#saveBtnInput')
 var scoreForm=document.querySelector('#score-form')
 var records = [];
 
