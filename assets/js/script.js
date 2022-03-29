@@ -12,6 +12,94 @@ const quizContainer = document.getElementById("quiz");
 const resultsContainer = document.getElementById("results");
 const submitButton = document.getElementById("submit");
 
+questionContainer.style.display= "none"
+var questions = [
+  {
+    question: "Which is not a data type?",
+    answers: {
+      a: "alert",
+      b: "boolean",
+      c: "string"
+    },
+    correctAnswer: "a"
+  },
+ {
+    question: "What is an array inclosed in?",
+    answers: {
+      a: "curly braces {}",
+      b: "square brackets []",
+      c: "parenthases ()"
+    },
+    correctAnswer: "b"
+  },
+ {
+    question: "Which of the following is a boolean value?",
+    answers: {
+      a: "true",
+      b: "0",
+      c: "1",
+      d: "all of the above"
+    },
+    correctAnswer: "d"
+  }
+];
+
+var questionIndex= 0
+function showQuestion(index) {
+    quest.textContent= ""
+    userChoice.textContent= ""
+    for (var i = 0; i < questions.length; i++) {
+        var Q= (questions[index].question)
+        var answerList= (questions[index].answers)
+        quest.textContent= Q
+    }
+    answerList.forEach(function(ans) {
+        var answerButton= document.createElement("button"); 
+        answerButton.style.position = "inline";
+        answerButton.style.left = "49%";
+        answerButton.style.transform = "translateX(-49%)";
+            answerButton.classList.add("answer-btn")
+            answerButton.textContent= ans
+            userChoice.appendChild(answerButton)
+            answerButton.addEventListener('click', function () {
+                //console.log(answerButton.textContent)
+                ansCheck(answerButton.textContent)
+            })
+            
+    })
+}
+    
+var checker= document.createElement("h2")
+function ansCheck(answer) {
+    
+        if (answer === questions[questionIndex].cAnswer) {
+            console.log("correct")
+            checker.textContent= "Correct"
+        }
+            else {
+                console.log("wrong")
+                checker.textContent= "Incorrect"
+                timeLeft= timeLeft-5;
+            }
+            
+            questionContainer.appendChild(checker)
+            questionIndex++;
+            next(questionIndex)
+            console.log(questionIndex)
+}
+function next(index) {
+    nextBtn.addEventListener('click', function() {
+       if (index >= questions.length) {
+           alert("You're Done!")
+           clearInterval(timer)
+       }
+       else {
+        checker.textContent= " "
+        showQuestion(index)
+       }
+    })
+}
+
 beginGame.addEventListener("click", function () {
   var timer = setInterval(function () {
     console.log(timeLeft);
@@ -67,7 +155,7 @@ function buildQuiz() {
   });
 
   // finally combine our output list into one string of HTML and put it on the page
-  quizContainer.innerHTML = output.join("");
+  quizContainer.questions.js = output.join("");
   showSlide(currentSlide);
   function showNextSlide() {
     showSlide(currentSlide + 1);
@@ -79,6 +167,8 @@ function buildQuiz() {
   previousButton.addEventListener("click", showPreviousSlide);
   nextButton.addEventListener("click", showNextSlide);
 }
+
+
 
 function showResults() {
   // gather answer containers from our quiz
@@ -112,8 +202,38 @@ function showResults() {
   // show number of correct answers out of total
   resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
 }
-var profile = [];
 
+var user_initial_input=document.querySelector('#intial')
+var scoreInput=document.querySelector('#score')
+var saveBtnInput=document.querySelector('#saveButton')
+var scoreForm=document.querySelector('#score-form')
+var records = [];
+
+let userRecord= {
+  Initials: user_initial_input
+}
+
+records.forEach(function(records){
+  var saveBtnInput =document.createElement("button");
+  saveBtnInput.classList.add("save-btn")
+saveBtnInput.textContent=userRecord.push(records)
+saveBtnInput.appendChild(saveBtnInput)
+userRecord.appendChild(saveBtnInput)
+saveBtnInput.addEventListener('click', function(){
+  renderMessage(saveBtnInput)
+})
+})
+
+saveBtnInput.addEventListener("click", function(event){
+  event.preventDefault();
+  records.push(userRecord);
+
+  localStorage.setItem("userRecord", JSON.stringify(records));
+  renderMessage();
+
+  console.log(records)
+}
+)
 // userStore.addEventListener("click", function(event) {
 //   event.preventDefault();
 
