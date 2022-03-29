@@ -13,6 +13,7 @@ var timer;
 
 questionContainer.style.display= "none"
 // Element.addEventListener('click'), function(){
+  //save array of questions
 var questions = [
   
   {
@@ -44,28 +45,25 @@ var questions = [
     correctAnswer: "all of the above"
   },
   {
-    question: "Which of the following is a boolean value?",
+    question: "Which of the following is a javascript file?",
     answers: [
-       "true",
-       "0",
-       "1",
-       "all of the above"
+       ".css",
+       ".js",
+       ".html",
     ],
-    correctAnswer: "all of the above"
+    correctAnswer: ".js"
   },
   {
-    question: "Which of the following is a boolean value?",
+    question: "javascript is the same as Java?",
     answers: [
        "true",
-       "0",
-       "1",
-       "all of the above"
+       "false",
     ],
-    correctAnswer: "all of the above"
+    correctAnswer: "false"
   }
 ];
 
-
+//sort through question index and display questions 
 var questionIndex= 0
 
 function showQuestion(index) {
@@ -93,7 +91,7 @@ function showQuestion(index) {
             
     })
 }
-    
+    //decrement timer
 var checker= document.createElement("h2")
 function ansCheck(answer) {
         if (answer === questions[questionIndex].cAnswer) {
