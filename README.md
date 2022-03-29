@@ -5,6 +5,8 @@ Has a timer that counts down
 
 Decrements time for wrong answer
 
+/var/folders/_s/539mgcyj50949n6rgh454_lh0000gn/T/TemporaryItems/NSIRD_screencaptureui_tcJRkY/Screen Shot 2022-03-29 at 6.37.55 PM.png
+
 # 04 Web APIs: Code Quiz
 
 ## Your Task

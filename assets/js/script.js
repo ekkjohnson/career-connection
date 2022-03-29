@@ -42,6 +42,26 @@ var questions = [
        "all of the above"
     ],
     correctAnswer: "all of the above"
+  },
+  {
+    question: "Which of the following is a boolean value?",
+    answers: [
+       "true",
+       "0",
+       "1",
+       "all of the above"
+    ],
+    correctAnswer: "all of the above"
+  },
+  {
+    question: "Which of the following is a boolean value?",
+    answers: [
+       "true",
+       "0",
+       "1",
+       "all of the above"
+    ],
+    correctAnswer: "all of the above"
   }
 ];
 
@@ -130,14 +150,15 @@ beginGame.addEventListener("click", startGame );
 
 
 
-var user_initial_input=document.querySelector('#intial')
-var scoreInput=document.querySelector('#score')
+var user_initial_input=document.querySelector('#intials').value()
+var scoreInput=document.querySelector('#score').value()
 var saveBtnInput=document.querySelector('#saveBtnInput')
 var scoreForm=document.querySelector('#score-form')
 var records = [];
 
 let userRecord= {
-  Initials: user_initial_input
+  Initials: user_initial_input,
+  Score: scoreInput
 }
 
 records.forEach(function(records){
@@ -155,7 +176,7 @@ saveBtnInput.addEventListener("click", function(event){
   event.preventDefault();
   records.push(userRecord);
 
-  localStorage.setItem("userRecord", JSON.stringify(records));
+  localStorage.setItem(userRecord, JSON.stringify(records));
   renderMessage();
 
   console.log(records)
@@ -176,3 +197,5 @@ function renderMessage(playerRecords) {
 //element to display questions
 const questTitle= document.createElement("h3");
 quest.appendChild(questTitle).textContent= ('QUESTIONS')
+
+// localStorage.setItem('myCat', 'Tom');
