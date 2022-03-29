@@ -1,22 +1,20 @@
 var rootEl = $('#root');
-var welcomeTxt= document.querySelector('.lrgTitle')
-var rules= document.querySelector('.intro-Rules')
-var beginGame= document.querySelector('.start-btn'); beginGame.style.position = "sticky";
-beginGame.style.left = "50%";
-beginGame.style.transform = "translateX(-50%)";
-var timeLeft= 10
-var timeDisplay= document.querySelector('.timerStart')
+var welcomeTxt= document.querySelector('#lrgTitle')
+var rules= document.querySelector('#intro-Rules')
+var beginGame= document.querySelector('#start-btn')
+var timeLeft= 30
+var timeDisplay= document.querySelector('#timerStart')
 var quest= document.querySelector('#questions')
 var container= document.querySelector('#content')
-var userChoice= document.querySelector('.answers')
+var userChoice= document.querySelector('#answers')
 var questionContainer= document.querySelector('#questionContainer')
-var nextBtn= document.querySelector('.nextBtn'); nextBtn.style.position = "sticky";
-nextBtn.style.left = "49%";
-nextBtn.style.transform = "translateX(-49%)";
+var nextBtn= document.querySelector('#nextBtn'); 
+var timer;
 
 questionContainer.style.display= "none"
 // Element.addEventListener('click'), function(){
 var questions = [
+  
   {
     question: "Which is not a data type?",
     answers: [
@@ -47,17 +45,18 @@ var questions = [
   }
 ];
 
+
 var questionIndex= 0
 
 function showQuestion(index) {
-  questionContainer.style.display= "block"
+  questionContainer.style.display= "flex"
     quest.textContent= ""
     userChoice.textContent= ""
-    for (var i = 0; i < questions.length; i++) {
+    
         var Q= (questions[index].question)
         var answerList= (questions[index].answers)
         quest.textContent= Q
-    }
+    
     answerList.forEach(function(ans) {
         var answerButton= document.createElement("button"); 
         answerButton.style.position = "inline";
@@ -66,17 +65,17 @@ function showQuestion(index) {
             answerButton.classList.add("answer-btn")
             answerButton.textContent= ans
             userChoice.appendChild(answerButton)
-            answerButton.addEventListener('click', function () {
+            answerButton.addEventListener('click', function (e){
+                e.preventDefault
                 //console.log(answerButton.textContent)
-                ansCheck(answerButton.textContent)
-            })
+                ansCheck(answerButton.textContent)}
+            )
             
     })
 }
     
 var checker= document.createElement("h2")
 function ansCheck(answer) {
-    
         if (answer === questions[questionIndex].cAnswer) {
             console.log("correct")
             checker.textContent= "Correct"
@@ -84,45 +83,50 @@ function ansCheck(answer) {
             else {
                 console.log("wrong")
                 checker.textContent= "Incorrect"
-                timeLeft= timeLeft-5;
+                 timeLeft -= 5;
             }
-            
             questionContainer.appendChild(checker)
             questionIndex++;
             next(questionIndex)
             console.log(questionIndex)
 }
 function next(index) {
-    nextBtn.addEventListener('click', function() {
-       if (index >= questions.length) {
+    // nextBtn.addEventListener('click', function() {
+       if (index === questions.length) {
            alert("Finish!")
            clearInterval(timer)
+           timeDisplay.textContent = timeLeft;
+          
+           questionContainer.style.display = 'none'
        }
        else {
         checker.textContent= " "
         showQuestion(index)
        }
-    })
+    }
+
+    function timeCheck() {
+      console.log(timeLeft);
+      timeLeft--;
+      timeDisplay.textContent = timeLeft;
+     if (timeLeft <= 0) {
+        alert("Game Over!");
+        timeDisplay.textContent = timeLeft;
+        questionContainer.style.display = 'none'
+        clearInterval(timer)
+      }
+    }
+
+
+
+function startGame( ){
+ timer = setInterval(timeCheck, 1000);
+ next(questionIndex)
+
+  console.log(timeLeft);
 }
 
-beginGame.addEventListener("click", function () {
-  var timer = setInterval(function () {
-    console.log(timeLeft);
-    timeLeft--;
-    if (timeLeft < 0) {
-      clearInterval(timer);
-    } else if (timeLeft === 0) {
-      alert("Game Over!");
-      timeDisplay.textContent = timeLeft;
-      timeLeft.textContent = "";
-    } else {
-      timeDisplay.textContent = timeLeft;
-
-    } 
-  }, 1000);
-showQuestion(0)
-  console.log(timeLeft);
-});
+beginGame.addEventListener("click", startGame );
 
 
 
