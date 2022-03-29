@@ -18,31 +18,31 @@ questionContainer.style.display= "none"
 var questions = [
   {
     question: "Which is not a data type?",
-    answers: {
-      a: "alert",
-      b: "boolean",
-      c: "string"
-    },
-    correctAnswer: "a"
+    answers: [
+       "alert",
+       "boolean",
+       "string"
+    ],
+    correctAnswer: "alert"
   },
  {
     question: "What is an array inclosed in?",
-    answers: {
-      a: "curly braces {}",
-      b: "square brackets []",
-      c: "parenthases ()"
-    },
-    correctAnswer: "b"
+    answers: [
+       "curly braces {}",
+       "square brackets []",
+       "parenthases ()"
+    ],
+    correctAnswer: "square brackets []"
   },
  {
     question: "Which of the following is a boolean value?",
-    answers: {
-      a: "true",
-      b: "0",
-      c: "1",
-      d: "all of the above"
-    },
-    correctAnswer: "d"
+    answers: [
+       "true",
+       "0",
+       "1",
+       "all of the above"
+    ],
+    correctAnswer: "all of the above"
   }
 ];
 

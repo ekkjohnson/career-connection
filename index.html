@@ -5,55 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap" rel="stylesheet">
     <title>Quiz Game!</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
-
 <body>
-    <section>
-        <div class="lrgTitle">Timed Javascript Quiz Game!</div>
-        <div class="intro-Rules"></div>
-        <button class="start-btn">Click to Start</button>
-    </section>
-    <section>
-        <div class="gameSection">
-            <div id="blankSpace"></div>
+    <section id="content">
+    <div class="lrgTilte"><h1>Quiz Game</h1></div>
+        <div class="intro-rules"></div>
+        <button class="start-btn">Click to Start Game</button>
+        <div class="card-timer">
+            <p class="timeStart"></p>
+            <p class="timeRemain">Time Remaining</p>
+        </div>
+        <div id="questionContainer">
+            <div id="questions"></div>
+            <div class="answers"></div>
         </div>
     </section>
-    <section>
-        <div class="card-timer">
-            <div class="timerMsg">
-                <p class="timerStart" id="timer-start"> 10 </p>
-
-                <h3>seconds remaining!!!</h3>
-            </div>
-    </section>
-    <div class="questions"></div>
-    <div class="content"></div>
-    <div id="quiz"></div>
-    <div id="answers"></div>
-    <!-- <button id="submit">Submit Quiz</button>
-    <div id="results"></div> -->
-
-    <div class="quiz-container">
-
-
-    </div>
-    <button id="previous">Previous Question</button>
-    <button id="next">Next Question</button>
-    <button id="submit">Submit Quiz</button>
-    <div id="results">Results</div>
-    <div id="'initial">Input</div>
-    <div id="score">Score</div>
-    <button id="saveButton">Save Score</button>
-    <div id="score-form">Score Form</div>
-
-
-    </div>
-
-
-    <section>
-    </section>
+    <button id="saveBtnInput">Save Score</button>
+    <div id=""></div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <script src="./assets/js/script.js"></script>

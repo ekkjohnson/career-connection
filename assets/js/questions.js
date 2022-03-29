@@ -197,3 +197,49 @@
 // //created h3 element to display questions
 // const questTitle= document.createElement("h3");
 // quest.appendChild(questTitle).textContent= ('QUESTIONS')
+<div class="container-fluid"></div>
+    <section>
+        <div class="lrgTitle">Timed Javascript Quiz Game!</div>
+        <div class="intro-Rules"></div>
+        <button class="start-btn">Click to Start</button>
+    </section>
+    <section>
+        <div class="gameSection">
+            <div id="blankSpace"></div>
+        </div>
+    </section>
+    <section>
+        <div class="card-timer">
+            <div class="timerMsg">
+                <p class="timerStart" id="timer-start"> 10 </p>
+
+                <h3>seconds remaining!!!</h3>
+            </div>
+    </section>
+    <div class="questions"></div>
+    <div class="content"></div>
+    <div id="quiz"></div>
+    <div id="answers"></div>
+    <!-- <button id="submit">Submit Quiz</button>
+    <div id="results"></div> -->
+
+    <div class="quiz-container">
+
+
+    </div>
+    <button id="previous">Previous Question</button>
+    <button id="next">Next Question</button>
+    <button id="submit">Submit Quiz</button>
+    <div id="results">Results</div>
+    <div id="'initial">Input</div>
+    <div id="score">Score</div>
+    <button id="saveButton">Save Score</button>
+    <div id="score-form">Score Form</div>
+
+
+    </div>
+
+
+    <section>
+    </section>
+    </div>
