@@ -47,6 +47,7 @@ var questions = [
 ];
 
 var questionIndex= 0
+onclick .start-btn
 function showQuestion(index) {
     quest.textContent= ""
     userChoice.textContent= ""
