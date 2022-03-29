@@ -12,9 +12,12 @@
     <title>Quiz Game!</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
+
 <body>
     <section id="content">
-    <div class="lrgTilte"><h1>Quiz Game</h1></div>
+        <div class="lrgTilte">
+            <h1>Quiz Game</h1>
+        </div>
         <div class="intro-rules"></div>
         <button class="start-btn">Click to Start Game</button>
         <div class="card-timer">
@@ -24,10 +27,17 @@
         <div id="questionContainer">
             <div id="questions"></div>
             <div class="answers"></div>
+            <button class="nextBtn">Next</button>
         </div>
     </section>
     <button id="saveBtnInput">Save Score</button>
-    <div id=""></div>
+    <div id="infoInput">
+        <form id="todo-form" method="post">
+            <label class="scoreInfo">
+                <input type="text" id="initials" placeholder="Enter Initials">
+            </label>
+        </form>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <script src="./assets/js/script.js"></script>
