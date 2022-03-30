@@ -148,16 +148,18 @@ beginGame.addEventListener("click", startGame );
 
 
 
-var user_initial_input=document.querySelector('#intials').value()
-var scoreInput=document.querySelector('#score').value()
+var user_initial_input=document.querySelector('#intials')
+var scoreInput=document.querySelector('#score')
 var saveBtnInput=document.querySelector('#saveBtnInput')
 var scoreForm=document.querySelector('#score-form')
 var records = [];
 
-let userRecord= {
-  Initials: user_initial_input,
-  Score: scoreInput
-}
+// let userRecord= {
+//   Initials: user_initial_input,
+//   Score: scoreInput
+// }
+
+let userRecord;
 
 records.forEach(function(records){
   var saveBtnInput =document.createElement("button");
@@ -171,7 +173,10 @@ saveBtnInput.addEventListener('click', function(){
 })
 
 saveBtnInput.addEventListener("click", function(event){
+
   event.preventDefault();
+  var allData=""
+  document.querySelector("#scoreInfo").innerHTML = allData;
   records.push(userRecord);
 
   localStorage.setItem(userRecord, JSON.stringify(records));
@@ -190,7 +195,7 @@ function renderMessage(playerRecords) {
   }
   var allData = "";
   
-  document.querySelector(".scoreInfo").innerHTML = allData;
+ 
      }
 //element to display questions
 const questTitle= document.createElement("h3");
