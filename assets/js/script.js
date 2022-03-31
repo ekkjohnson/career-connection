@@ -1,21 +1,32 @@
-var rootEl = $('#root');
+// 
 var welcomeTxt= document.querySelector('#lrgTitle')
 var rules= document.querySelector('#intro-Rules')
 var beginGame= document.querySelector('#start-btn')
-var timeLeft= 30
+
 var timeDisplay= document.querySelector('#timerStart')
 var quest= document.querySelector('#questions')
 var container= document.querySelector('#content')
 var userChoice= document.querySelector('#answers')
 var questionContainer= document.querySelector('#questionContainer')
 var nextBtn= document.querySelector('#nextBtn'); 
+
+// ScoreBoard Elements
+var user_initial_input = document.querySelector('#initials')
+var scoreInput=document.querySelector('#score')
+var saveBtnInput=document.querySelector('#saveBtnInput')
+var scoreForm=document.querySelector('#score-form')
+var scoreboardEl=document.getElementById('scoreboard');
+var highscoresBtn = document.getElementById('highscores')
+
+var records = [];
 var timer;
+var timeLeft= 30
 
 questionContainer.style.display= "none"
+
 // Element.addEventListener('click'), function(){
   //save array of questions
 var questions = [
-  
   {
     question: "Which is not a data type?",
     answers: [
@@ -91,8 +102,10 @@ function showQuestion(index) {
             
     })
 }
-    //decrement timer
+
+//decrement timer
 var checker= document.createElement("h2")
+
 function ansCheck(answer) {
         if (answer === questions[questionIndex].cAnswer) {
             console.log("correct")
@@ -108,8 +121,8 @@ function ansCheck(answer) {
             next(questionIndex)
             console.log(questionIndex)
 }
+
 function next(index) {
-    // nextBtn.addEventListener('click', function() {
        if (index === questions.length) {
            alert("Finish!")
            clearInterval(timer)
@@ -118,12 +131,12 @@ function next(index) {
            questionContainer.style.display = 'none'
        }
        else {
-        checker.textContent= " "
+        checker.textContent= ""
         showQuestion(index)
        }
     }
 
-    function timeCheck() {
+function timeCheck() {
       console.log(timeLeft);
       timeLeft--;
       timeDisplay.textContent = timeLeft;
@@ -140,65 +153,45 @@ function next(index) {
 function startGame( ){
  timer = setInterval(timeCheck, 1000);
  next(questionIndex)
-
   console.log(timeLeft);
 }
 
 beginGame.addEventListener("click", startGame );
 
-
-
-var user_initial_input=document.querySelector('#intials')
-var scoreInput=document.querySelector('#score')
-var saveBtnInput=document.querySelector('#saveBtnInput')
-var scoreForm=document.querySelector('#score-form')
-var records = [];
-
-// let userRecord= {
-//   Initials: user_initial_input,
-//   Score: scoreInput
-// }
-
-let userRecord;
-
-records.forEach(function(records){
-  var saveBtnInput =document.createElement("button");
-  saveBtnInput.classList.add("save-btn")
-saveBtnInput.textContent=userRecord.push(records)
-saveBtnInput.appendChild(saveBtnInput)
-userRecord.appendChild(saveBtnInput)
-saveBtnInput.addEventListener('click', function(){
-  renderMessage(saveBtnInput)
-})
-})
-
-saveBtnInput.addEventListener("click", function(event){
-
+scoreForm.addEventListener("submit", function(event){
   event.preventDefault();
-  var allData=""
-  document.querySelector("#scoreInfo").innerHTML = allData;
-  records.push(userRecord);
+  console.log(user_initial_input)
+  document.querySelector("#scoreInfo").innerHTML = timeLeft
+  let newRecord= {
+    Initials: user_initial_input.value.trim(),
+    Score: timeLeft
+  }
 
-  localStorage.setItem(userRecord, JSON.stringify(records));
-  renderMessage();
 
-  console.log(records)
+  let records = JSON.parse(localStorage.getItem('userRecords')) || [];
+
+  records.push(newRecord);
+
+  localStorage.setItem( 'userRecords' , JSON.stringify(records));
+  
 }
 )
-function renderMessage(playerRecords) {
-  var playerListFromStorage = JSON.parse(localStorage.getItem("userRecord"));  
- 
- 
-  for (var i = 0; i < playerListFromStorage.length; i++) {
-      console.log(playerListFromStorage[userRecord]);
-      allData += playerListFromStorage[userRecord];
-  }
-  var allData = "";
-  
- 
-     }
+
+function renderScores() {
+  var playerListFromStorage = JSON.parse(localStorage.getItem("userRecords")) || [];  
+  playerListFromStorage.forEach((player)=>{
+
+    let username = player.Initials;
+    let score = player.Score;
+    let scoreLiEl = document.createElement('li');
+    scoreLiEl.textContent = `${username} | ${score}`
+    scoreboardEl.appendChild(scoreLiEl)
+  })
+}
+highscoresBtn.addEventListener('click',renderScores)
+
 //element to display questions
-const questTitle= document.createElement("h3");
-quest.appendChild(questTitle).textContent= ('QUESTIONS')
+// const questTitle= document.createElement("h3");
+// quest.appendChild(questTitle).textContent= ('QUESTIONS')
 
 // localStorage.setItem('myCat', 'Tom');

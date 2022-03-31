@@ -35,12 +35,18 @@
             <!-- <button id="nextBtn">Next</button> -->
         </div>
     </section>
-    <button id="saveBtnInput">Save Score</button>
-    <div id="infoInput">
-        <form id="todo-form" method="post">
+   
+    <div id="infoInput"> 
+        <form id="score-form">
             <label id="scoreInfo"></label>
-                <input type="text" id="initials" placeholder="Enter Initials">
+            <input  for="score-form" type="text" id="initials" placeholder="Enter Initials">
+            <button for='score-form' type="submit" id="saveBtnInput">Save Score</button>
         </form>
+        <button type="button" id="highscores">Show the Highscores!</button>
+
+        <ul id="scoreboard">
+
+        </ul>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
